@@ -1,5 +1,7 @@
 import * as React from "react";
 import { Component } from 'react';
+import { DragDropContext, DragSource } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
 import './App.css';
 import logo from './logo.svg';
 
@@ -23,4 +25,4 @@ class App extends Component {
     }
 }
 
-export default App;
+export default DragDropContext(HTML5Backend)(App);

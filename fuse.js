@@ -28,14 +28,14 @@ Sparky.task("config", () => {
         ]
     });
     // vendor
-    vendor = fuse.bundle("vendor").instructions("~ index.jsx")
+    vendor = fuse.bundle("vendor").instructions("~ index.jsx").target("browser")
 
     // bundle app
     app = fuse.bundle("app").instructions("> [index.jsx]")
 });
 
 Sparky.task("default", ["clean", "config"], () => {
-    fuse.dev();
+    fuse.dev({port:8080});
     // add dev instructions
     app.watch().hmr()
     return fuse.run();
